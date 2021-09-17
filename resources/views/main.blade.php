@@ -10,7 +10,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
     <body class="d-flex flex-column h-100">
-        <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
+        <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
             <div class="container-fluid">
                 <a class="navbar-brand mr-auto" href="{{ config('app.url') }}">{{ config('app.name') }}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -35,7 +35,14 @@
                 </div>
             </div>
         </nav>
-        @yield('content')
+        <main class="main-container">
+            @section('sidebar')
+            <div class="sidebar-container">
+            @show
+            </div>
+            
+            @yield('content')
+        </main>
         <footer class="footer mt-auto py-3 bg-light">
             <div class="container-fluid">
                 <span class="text-muted">&copy; {{ config('app.name') }} 2021</span>
