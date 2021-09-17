@@ -17,7 +17,7 @@ class MyAuthController extends Controller
     }  
       
 
-    public function customLogin(Request $request)
+    public function postLogin(Request $request)
     {
         $request->validate([
             'email' => 'required',
@@ -35,13 +35,13 @@ class MyAuthController extends Controller
 
 
 
-    public function registration()
+    public function register()
     {
         return view('auth.register');
     }
       
 
-    public function customRegistration(Request $request)
+    public function postRegister(Request $request)
     {  
         $request->validate([
             'name' => 'required',
@@ -51,12 +51,15 @@ class MyAuthController extends Controller
            
         $data = $request->all();
         $check = $this->create($data);
+
+        $credentials = $request->only('email', 'password');
+        Auth::attempt($credentials);
          
         return redirect("dashboard")->withSuccess('You have signed-in');
     }
 
 
-    public function create(array $data)
+    private function create(array $data)
     {
       return User::create([
         'name' => $data['name'],
@@ -69,14 +72,14 @@ class MyAuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('main');
+            return view('dashboard');
         }
   
         return redirect("login")->withSuccess('You are not allowed to access');
     }
     
 
-    public function signOut() {
+    public function logOut() {
         Session::flush();
         Auth::logout();
   

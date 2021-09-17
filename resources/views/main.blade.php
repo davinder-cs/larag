@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="h-100">
 <head>
-    <title>{{ config('app.name') }} - @yield('title')</title>
+    <title>{{ config('app.name') }} - @yield('title', 'Laravel G')</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,11 +26,11 @@
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register-user') }}">Register</a>
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('signout') }}">Logout</a>
+                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
                     </li>
                     @endguest
                 </ul>

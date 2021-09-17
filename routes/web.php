@@ -10,12 +10,16 @@ use App\Http\Controllers\MyAuthController;
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
-    return view('main');
+    return view('dashboard');
 });
-Route::get('dashboard', [MyAuthController::class, 'dashboard']); 
+
+Route::get('dashboard', [MyAuthController::class, 'dashboard']);
+
 Route::get('login', [MyAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [MyAuthController::class, 'customLogin'])->name('login.custom'); 
-Route::get('registration', [MyAuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [MyAuthController::class, 'customRegistration'])
-    ->name('register.custom'); 
-Route::get('signout', [MyAuthController::class, 'signOut'])->name('signout');
+Route::post('login', [MyAuthController::class, 'postLogin'])->name('login.post');
+
+Route::get('register', [MyAuthController::class, 'register'])->name('register');
+Route::post('register', [MyAuthController::class, 'postRegister'])->name('register.post');
+
+Route::get('logout', [MyAuthController::class, 'logOut'])->name('logout');
+     
