@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             @guest
             <div class="col-md-8 text-center">
-                Welcome User!
+                Welcome user! <br/>Please login to get started.
             </div>
             @else
             <div class="col-md-8 text-center">

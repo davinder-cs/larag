@@ -53,6 +53,7 @@ class MyAuthController extends Controller
         $check = $this->create($data);
 
         $credentials = $request->only('email', 'password');
+        // Login after registration
         Auth::attempt($credentials);
          
         return redirect("dashboard")->withSuccess('You have signed-in');
@@ -61,11 +62,11 @@ class MyAuthController extends Controller
 
     private function create(array $data)
     {
-      return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password'])
-      ]);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+        ]);
     }    
     
 
@@ -74,7 +75,7 @@ class MyAuthController extends Controller
         if(Auth::check()){
             return view('dashboard');
         }
-  
+
         return redirect("login")->withSuccess('You are not allowed to access');
     }
     
@@ -82,7 +83,7 @@ class MyAuthController extends Controller
     public function logOut() {
         Session::flush();
         Auth::logout();
-  
+
         return Redirect('login');
     }
 }
