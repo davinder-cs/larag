@@ -12,9 +12,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- css -->
         <link href="{{ asset('style.css') }}" rel="stylesheet">
+        <!-- favicon -->
+        <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}"/>
     </head>
     <body class="d-flex flex-column h-100">
-        <nav class="navbar navbar-light navbar-expand-lg mb-1" style="background-color: #e3f2fd;">
+        <nav class="navbar navbar-dark navbar-expand-lg mb-1">
             <div class="container-fluid">
                 <a class="navbar-brand mr-auto" href="{{ config('app.url') }}">{{ config('app.name') }}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
